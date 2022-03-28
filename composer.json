@@ -1,6 +1,6 @@
 {
-  "name": "hieudmg/secure-pay-api",
-  "description": "description",
+  "name": "fgct/securepay-api",
+  "description": "SecurePay API",
   "minimum-stability": "stable",
   "license": "MIT",
   "version": "1.0",
