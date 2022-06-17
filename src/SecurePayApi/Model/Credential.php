@@ -4,6 +4,7 @@ namespace SecurePayApi\Model;
 
 use SecurePayApi\Exception\InvalidResponseException;
 use SecurePayApi\Exception\RequestException;
+use SecurePayApi\Model\Response\Error\ResponseError;
 use SecurePayApi\Request\ClientCredentialsRequest;
 
 class Credential
@@ -37,7 +38,12 @@ class Credential
         $this->clientSecret = $clientSecret;
         if (!$token) {
             $request = new ClientCredentialsRequest($isLive, $clientId, $clientSecret);
-            $token = $request->execute()->getAccessToken();
+            $response = $request->execute();
+            if ($response instanceof ResponseError) {
+                throw new RequestException($response->getFirstError()->getDetail());
+            }
+
+            $token = $response->getAccessToken();
         }
         $this->token = $token;
     }
