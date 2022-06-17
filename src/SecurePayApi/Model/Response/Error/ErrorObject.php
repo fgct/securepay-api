@@ -17,7 +17,7 @@ class ErrorObject extends DataObject
      */
     public function getId(): string
     {
-        return $this->getData(self::ID);
+        return $this->getData(self::ID) ?? 'UNKNOWN';
     }
 
     /**
@@ -27,7 +27,7 @@ class ErrorObject extends DataObject
      */
     public function getCode(): string
     {
-        return $this->getData(self::CODE);
+        return $this->getData(self::CODE) ?? 'UNKNOWN';
     }
 
     /**
@@ -37,6 +37,6 @@ class ErrorObject extends DataObject
      */
     public function getDetail(): string
     {
-        return $this->getData(self::DETAIL);
+        return $this->getData(self::DETAIL) ?? 'Unknown Error';
     }
 }

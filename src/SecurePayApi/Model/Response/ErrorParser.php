@@ -22,8 +22,16 @@ class ErrorParser
     {
         if ($code == 400 || $code == 500) {
             $errors = [];
-            foreach ($data['errors'] as $error) {
-                $errors[] = new ErrorObject($error);
+            if (isset($data['errors'])) {
+                foreach ($data['errors'] as $error) {
+                    $errors[] = new ErrorObject($error);
+                }
+            } elseif (isset($data['error'])) {
+                $errors[] = new ErrorObject([
+                    ErrorObject::ID => $data[ErrorObject::ID] ?? $data['code'] ?? null,
+                    ErrorObject::CODE => $data[ErrorObject::CODE] ?? $data['error'] ?? null,
+                    ErrorObject::DETAIL => $data[ErrorObject::DETAIL] ?? $data['error_description'] ?? null,
+                ]);
             }
             return new ResponseError(['errors' => $errors]);
         }
