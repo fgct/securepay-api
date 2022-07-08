@@ -48,6 +48,6 @@ class FraudCheckResultObject extends DataObject
      */
     public function getScore(): ?int
     {
-        return $this->getData(self::SCORE);
+        return $this->getData(self::SCORE) ? (int)$this->getData(self::SCORE) : null;
     }
 }

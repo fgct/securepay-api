@@ -38,7 +38,7 @@ class ClientCredentialsData extends DataObject
      */
     public function getExpiresIn(): int
     {
-        return $this->getData(self::EXPIRES_IN);
+        return (int)$this->getData(self::EXPIRES_IN);
     }
 
     /**

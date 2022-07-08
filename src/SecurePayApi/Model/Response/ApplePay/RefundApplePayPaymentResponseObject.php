@@ -43,7 +43,7 @@ class RefundApplePayPaymentResponseObject extends DataObject
      */
     public function getAmount(): int
     {
-        return $this->getData(self::AMOUNT);
+        return (int)$this->getData(self::AMOUNT);
     }
 
     /**
