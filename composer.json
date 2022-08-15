@@ -3,7 +3,7 @@
   "description": "SecurePay API",
   "minimum-stability": "stable",
   "license": "MIT",
-  "version": "1.5",
+  "version": "1.6",
   "authors": [
     {
       "name": "hieudmg",
@@ -11,7 +11,7 @@
     }
   ],
   "require": {
-    "php": "^7.4",
+    "php": ">=7.4",
     "ext-curl": "*",
     "ext-json": "*"
   },
