@@ -51,6 +51,7 @@ abstract class Request
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
+        curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
 
         if ($method === self::METHOD_POST) {
             curl_setopt($ch, CURLOPT_POST, 1);
