@@ -37,9 +37,9 @@ class ErrorParser
         }
 
         if ($code == 401) {
-            throw new UnauthorizedException();
+            throw new UnauthorizedException(sprintf('HTTP 401: %s', json_encode($data)));
         }
 
-        throw new InvalidResponseException();
+        throw new InvalidResponseException(sprintf('Unexpected HTTP %d: %s', $code, json_encode($data)));
     }
 }
